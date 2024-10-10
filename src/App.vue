@@ -1,13 +1,11 @@
 <template>
   <div>
-    <MainComponent />
+    <MainBasicComponent />
   </div>
 </template>
 
 <script setup>
-import MainComponent from '@/components/MainComponent.vue';
+import MainBasicComponent from '@/components/componentsBasics/MainComponent.vue';
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
