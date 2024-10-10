@@ -2,9 +2,7 @@
   <div :style="{ fontSize: postFontSize + 'em' }">
     <BlogPost v-for="post in posts" :key="post.id" :title="post.title" @enlarge-text="postFontSize += 0.1" />
   </div>
-  <AlertBox>
-    Something bad happened.
-  </AlertBox>
+  <AlertBox> Something bad happened. </AlertBox>
 </template>
 
 <script setup>
