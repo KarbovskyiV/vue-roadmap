@@ -2,5 +2,10 @@ import './assets/main.css';
 
 import { createApp } from 'vue';
 import App from './App.vue';
+import GlobalComponent from '@/components/componentInDepth/GlobalComponent.vue';
 
-createApp(App).mount('#app');
+const app = createApp(App);
+
+app.component('GlobalComponent', GlobalComponent);
+
+app.mount('#app');
