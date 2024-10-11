@@ -27,26 +27,26 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue';
+import { ref, computed, reactive } from 'vue';
 
 const header = ref('Shopping List App');
 const characterCount = computed(() => {
   return newItem.value.length;
 });
 const editing = ref(false);
-const items = ref([
+const items = reactive([
   { id: 1, label: '10 party hats', purchased: true, highPriority: false },
   { id: 2, label: '2 board games', purchased: true, highPriority: false },
   { id: 3, label: '20 cups', purchased: false, highPriority: true },
 ]);
 const reversedItems = computed(() => {
-  return [...items.value].reverse();
+  return [...items].reverse();
 });
 const newItem = ref('');
 const newItemHighPriority = ref(false);
 
 const saveItem = () => {
-  items.value.push({ id: items.value.length + 1, label: newItem.value, highPriority: newItemHighPriority.value });
+  items.push({ id: items.length + 1, label: newItem.value, highPriority: newItemHighPriority.value });
   newItem.value = '';
   newItemHighPriority.value = false;
 };
