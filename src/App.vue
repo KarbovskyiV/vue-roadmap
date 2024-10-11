@@ -1,12 +1,10 @@
 <template>
-  <div>
-    <!--    <MainBasicComponent />-->
-    <!--    <GlobalComponent />-->
-    <MainComponentInDepth />
-  </div>
+  <h1>{{ msg }}</h1>
+  <input v-model="msg" />
 </template>
 
 <script setup>
-// import MainBasicComponent from '@/components/componentsBasics/MainComponent.vue';
-import MainComponentInDepth from '@/components/componentInDepth/MainComponent.vue';
+import { ref } from 'vue';
+
+const msg = ref('Hello World!');
 </script>
