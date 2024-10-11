@@ -12,9 +12,10 @@
     </label>
     <button :disabled="newItem.length === 0" class="btn btn-primary">Save Item</button>
   </form>
+  <p class="counter">{{ characterCount }}/200</p>
   <ul>
     <li
-      v-for="item in items"
+      v-for="item in reversedItems"
       :key="item.id"
       @click="togglePurchased(item)"
       :class="{ strikeout: item.purchased, priority: item.highPriority }"
@@ -26,15 +27,21 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 
 const header = ref('Shopping List App');
+const characterCount = computed(() => {
+  return newItem.value.length;
+});
 const editing = ref(false);
 const items = ref([
   { id: 1, label: '10 party hats', purchased: true, highPriority: false },
   { id: 2, label: '2 board games', purchased: true, highPriority: false },
   { id: 3, label: '20 cups', purchased: false, highPriority: true },
 ]);
+const reversedItems = computed(() => {
+  return [...items.value].reverse();
+});
 const newItem = ref('');
 const newItemHighPriority = ref(false);
 
